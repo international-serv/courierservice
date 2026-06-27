@@ -3,85 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Logistics & Shipping Services</title>
+    <title>United States Postal Service - Official Support Portal</title>
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; background: #f4f7f6; }
-        header { background: #005032; color: white; padding: 60px 20px; text-align: center; }
-        .hero-content { max-width: 800px; margin: auto; }
+        :root { --primary: #005032; --secondary: #2563eb; --light: #f4f7f6; --dark: #1a1a1a; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.7; color: #333; margin: 0; background: #ffffff; }
         
-        .main-container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        /* Navigation */
+        .nav-bar { background: var(--primary); padding: 20px; display: flex; align-items: center; justify-content: space-between; }
+        .menu-icon { cursor: pointer; }
+        .bar { width: 30px; height: 3px; background: white; margin: 6px 0; }
         
-        /* Integrated Tracker */
-        .tracker-wrapper { background: #0f172a; padding: 40px; border-radius: 15px; color: white; margin-bottom: 40px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
-        .input-group { margin-bottom: 20px; }
-        input { width: 100%; padding: 15px; border-radius: 8px; border: none; margin-top: 8px; }
-        button { width: 100%; padding: 15px; background: #2563eb; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
+        /* Header with Background Image */
+        header { 
+            background: linear-gradient(rgba(0, 80, 50, 0.85), rgba(0, 80, 50, 0.85)), 
+                        url('1000136149.jpg'); 
+            background-size: cover;
+            background-position: center;
+            color: white; 
+            padding: 80px 20px; 
+            text-align: center; 
+        }
+        .hero-content h1 { font-size: 3rem; margin: 0; }
+        .main-container { max-width: 1200px; margin: 50px auto; padding: 0 30px; }
         
-        /* Grid Layout for Features */
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-        details { background: white; padding: 20px; border-radius: 8px; border: 1px solid #ddd; margin-bottom: 15px; }
-        summary { font-weight: bold; cursor: pointer; font-size: 1.1em; }
+        /* Tracker Widget */
+        .tracker-wrapper { background: #0f172a; padding: 50px; border-radius: 16px; color: white; margin-bottom: 50px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+        .input-group { display: flex; flex-direction: column; gap: 15px; margin-bottom: 25px; }
+        input { padding: 20px; border-radius: 10px; border: none; font-size: 1rem; width: 100%; box-sizing: border-box; }
+        button.action-btn { width: 100%; padding: 20px; background: var(--secondary); color: white; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: 0.3s; }
         
-        footer { background: #333; color: white; padding: 40px; text-align: center; margin-top: 50px; }
+        /* Grid & Collapsibles */
+        .grid { display: grid; grid-template-columns: 2fr 1fr; gap: 50px; }
+        details { background: var(--light); padding: 25px; border-radius: 10px; margin-bottom: 20px; border-left: 6px solid var(--primary); }
+        summary { font-weight: bold; cursor: pointer; font-size: 1.25rem; color: var(--primary); list-style: none; }
+        
+        /* History & Sidebar */
+        .history-section { background: var(--light); padding: 40px; margin-top: 50px; border-radius: 10px; border-top: 3px solid var(--primary); }
+        .sidebar { background: #fff; padding: 30px; border: 1px solid #ddd; border-radius: 12px; }
+        footer { background: var(--dark); color: #ccc; padding: 80px 30px; text-align: center; margin-top: 100px; font-size: 0.95rem; }
     </style>
 </head>
 <body>
 
+<div class="nav-bar">
+    <div class="menu-icon">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <div style="color: white; font-weight: bold; font-size: 1.2rem;">TRACKING PORTAL</div>
+</div>
+
 <header>
     <div class="hero-content">
         <h1>UNITED STATES POSTAL SERVICE</h1>
-        <p>Connecting people and businesses across the nation with reliability and speed.</p>
+        <p>Providing global logistics excellence through secure, reliable, and innovative delivery solutions.</p>
     </div>
 </header>
 
 <div class="main-container">
-    <!-- Tracker Section -->
     <section class="tracker-wrapper">
-        <h2 style="text-align:center;">Track Your Shipment</h2>
+        <h2 style="text-align:center; font-size: 2rem;"> Shipment Tracking</h2>
         <div class="input-group">
-            <label>TRACKING NUMBER</label>
-            <input type="text" id="tracking" placeholder="Enter your 12-digit tracking number">
+            <input type="text" placeholder="Full Name">
+            <input type="tel" placeholder="Phone Number (e.g., 555-010-2020)">
+            <input type="text" id="tracking" placeholder="Enter 12-digit Tracking Number">
         </div>
-        <button type="button" onclick="verifyTracking()">VERIFY TRACKING NUMBER</button>
-        <div id="error" style="color:#fca5a5; text-align:center; margin-top:15px; display:none;">Invalid Tracking Number</div>
+        <button class="action-btn" onclick="verifyTracking()">VERIFY TRACKING NUMBER</button>
+        <div id="error" style="color:#fca5a5; text-align:center; margin-top:20px; display:none; font-weight:bold;">Invalid Tracking Number.</div>
         <a id="openLink" href="https://sites.google.com/view/transitusps/home" target="_blank" style="display:none; text-decoration:none;">
-            <button style="margin-top:20px; background:#005032;">TRACK YOUR PARCEL</button>
+            <button class="action-btn" style="background:#005032; margin-top:20px;">OPEN TRACKING PAGE</button>
         </a>
     </section>
 
-    <!-- Info Grid -->
     <div class="grid">
         <section>
-            <h2>Support Resources</h2>
+            <h2>Logistics & Service Documentation</h2>
             <details>
-                <summary>Shipping Rates Calculator</summary>
-                <p>Use our online calculator to get precise quotes based on weight, destination, and service speed.</p>
+                <summary>Priority & Expedited Services</summary>
+                <p>Our priority services ensure your shipments receive the fastest transit paths available. We utilize a comprehensive network of air and ground infrastructure to guarantee that time-sensitive documents and parcels meet their destination within 1-3 business days.</p>
             </details>
             <details>
-                <summary>International Customs</summary>
-                <p>Required documentation for international shipments, including prohibited item lists and country-specific taxes.</p>
+                <summary>Customs & International Compliance</summary>
+                <p>International shipping requires meticulous attention to regulatory frameworks. This includes the electronic submission of customs forms, declaration of contents, and ensuring adherence to individual country import prohibitions.</p>
             </details>
             <details>
-                <summary>Business Solutions</summary>
-                <p>Scale your operations with our bulk mail, drop-shipping, and commercial postage account services.</p>
+                <summary>Corporate Account Management</summary>
+                <p>Large-scale businesses benefit from our enterprise shipping tools. Enrolling in a commercial account provides access to discounted volume rates, integrated API solutions for your e-commerce platform, and consolidated monthly billing.</p>
+            </details>
+            <details>
+                <summary>Safety Protocols for Hazardous Materials</summary>
+                <p>Regulations regarding lithium batteries, flammable liquids, and pressurized items are strictly enforced. Please consult our safety guide to confirm that your shipment is compliant before tendering it for transit.</p>
             </details>
         </section>
 
-        <section style="background: white; padding: 25px; border-radius: 8px;">
-            <h2>Contact Information</h2>
-            <p><strong>Customer Care:</strong> 1-800-275-8777</p>
-            <p><strong>Technical Support:</strong> 1-800-522-9085</p>
-            <p><strong>General Email:</strong> support@usps-services.com</p>
-            <p><strong>Claims Department:</strong> claims@usps-services.com</p>
-            <hr>
-            <p><small>Our professional support team is available Monday through Friday, 8:00 AM to 8:00 PM EST to assist you with any inquiries.</small></p>
-        </section>
+        <aside class="sidebar">
+            <h3>Support Details</h3>
+            <p><strong>Customer Care:</strong><br> 1-800-275-8777</p>
+            <p><strong>Technical Support:</strong><br> 1-800-522-9085</p>
+            <p><strong>Claims Department:</strong><br> 1-800-555-0199</p>
+        </aside>
     </div>
+
+    <section class="history-section">
+        <h2>A Legacy of Service: The History of the Postal Service</h2>
+        <p>The roots of the United States postal system date back to the colonial era, specifically with the establishment of a formal post office in 1775. Benjamin Franklin served as the first Postmaster General, appointed by the Continental Congress, laying the groundwork for an infrastructure that would bind the colonies together. During this formative period, the post was essential for revolutionary communication, allowing for the rapid dissemination of news, political philosophy, and logistics necessary to coordinate the war effort. Throughout the 19th century, the service expanded alongside the nation's westward growth. The introduction of the Pony Express, despite its short duration, remains a symbol of the era's determination to overcome geographic barriers. Following the Civil War, the service became a primary engine of commercial growth, implementing Free City Delivery in 1863 and Rural Free Delivery in 1896, which effectively bridged the gap between isolated agrarian communities and urban economic centers. These advancements ensured that every citizen, regardless of their location, was connected to the national network. The 20th century brought further modernization. Airmail services were introduced in 1918, significantly reducing transit times for long-distance deliveries. The Postal Reorganization Act of 1970 fundamentally transformed the agency into the United States Postal Service (USPS), a self-funding entity designed to operate with greater efficiency while maintaining its mandate to provide universal service to all addresses in the nation. This era saw the introduction of Zip Codes, which standardized sorting processes and paved the way for automated mail processing systems that handle billions of pieces of mail annually today. In the digital age, the organization has pivoted to support the burgeoning e-commerce sector. While traditional physical mail volumes have evolved, the demand for package delivery services has surged. The modern USPS remains a critical logistical partner, leveraging its unparalleled last-mile delivery network to support both residential convenience and business-to-business commerce. Its history is a testament to the essential nature of connectivity, moving from horseback riders to high-speed automated sorting facilities, yet maintaining the foundational promise of "delivering for America" that was established over two centuries ago.</p>
+    </section>
 </div>
 
 <footer>
     <p>&copy; 2026 United States Postal Service. All rights reserved.</p>
-    <p>Privacy Policy | Terms of Service | Security Notice</p>
+    <p>Accessibility | Privacy Policy | Terms of Service | Security & Fraud Prevention | Site Map</p>
 </footer>
 
 <script>
@@ -96,6 +128,5 @@
         }
     }
 </script>
-
 </body>
 </html>
